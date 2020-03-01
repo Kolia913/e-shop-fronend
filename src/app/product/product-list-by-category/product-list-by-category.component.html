@@ -1,0 +1,4 @@
+<div class="container col-md-8" >
+  <app-product-item *ngFor="let product of products | async" [product]="product"></app-product-item><!--Needs fixing-->
+  <router-outlet></router-outlet>
+</div>

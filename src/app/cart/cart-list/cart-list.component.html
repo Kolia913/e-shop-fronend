@@ -1,0 +1,13 @@
+<div style="color: whitesmoke; padding: 1rem; height: max-content; min-height: 55rem;" class="container col-md-8">
+  <app-cart-item *ngFor="let item of this.cartService.values" [cartProduct]="item"></app-cart-item>
+  <div style="padding: 0.5rem; margin: 0 auto">
+    <button class="btn btn-success" style="position:absolute;" (click)="buyAllCart()">Buy all</button>
+    <p style="margin-left: 5rem; margin-top: 0.5rem">Total price: {{this.cartService.totalPrice | number: '1.2-3'}}</p>
+  </div>
+  <div *ngIf="this.gameKeys">
+  <p *ngFor="let key of gameKeys">{{key}}</p>
+  </div>
+</div>
+
+
+

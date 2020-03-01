@@ -1,0 +1,5 @@
+<img src="{{cartProduct.image}}" style="width: 3rem; height: 3rem; border-radius: 50%">
+<h6>{{cartProduct.name}}</h6>
+<p>{{cartProduct.price}}</p>
+<button class="btn btn-danger" (click)="this.cartService.removeFromCart(cartProduct._id)">Remove</button>
+<hr />

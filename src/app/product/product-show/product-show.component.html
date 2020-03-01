@@ -1,0 +1,9 @@
+<div *ngIf="product | async as item" class="container">
+  <img style="width: 65rem; height: 35rem; margin: 2rem; box-shadow: 0 0 4px" class="product_image" src="{{item.image}}" />
+  <h5 style="color: whitesmoke">{{item.name}}</h5>
+  <p class="font-italic">{{item.description}}</p>
+  <p style="font-size: 0.7rem" class="text text-muted">{{productPlatforms}}</p><!--Output is number (0,1,2) should be string-->
+  <p>{{item.price}}</p>
+  <button style="margin: 5px;" class="btn btn-success" href="#">Add to cart</button>
+  <hr />
+</div>

@@ -1,0 +1,7 @@
+<div class="container" style="z-index: 99999; width: 100%; height: 60rem; align-content: center; padding: 5rem;">
+<form [formGroup]="loginForm" (submit)="submit()">
+   <input style="margin: 3rem" required placeholder="Login" type="text" [formControlName]="'login'">
+  <input style="margin: 3rem;" required placeholder="Password" type="password" [formControlName]="'password'">
+  <button class="btn btn-info" type="submit">Login</button>
+</form>
+</div>

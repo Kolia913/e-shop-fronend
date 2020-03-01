@@ -1,0 +1,9 @@
+<img [routerLink]="['/products',product._id]"  class="product_image" src="{{product.image}}" />
+<h5 style="color: whitesmoke">{{product.name}}</h5>
+<p style="font-size: 0.7rem" class="text text-muted">{{productPlatforms}}</p>
+<p>{{product.price}}</p>
+<button *ngIf="!isAdmin"  style="margin: 4px;" class="btn btn-danger" [routerLink]="['/products',product._id]" >More</button>
+<button style="margin: 4px;" class="btn btn-success" (click)="this.productService.addToCart(product)">Add to cart</button>
+<button *ngIf="isAdmin"  style="margin: 4px;" class="btn btn-info" >Edit</button>
+<button *ngIf="isAdmin"  style="margin: 4px;" class="btn btn-warning" >Remove</button>
+<hr />

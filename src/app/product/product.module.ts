@@ -9,6 +9,7 @@ import { ProductListByCategoryComponent } from './product-list-by-category/produ
 import {CartModule} from '../cart/cart.module';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     imports: [
         CommonModule,
         RouterModule,
-        CartModule
+        CartModule,
+        ReactiveFormsModule
     ],
   exports: [
     ProductListComponent

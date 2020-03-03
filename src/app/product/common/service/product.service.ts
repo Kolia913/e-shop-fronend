@@ -19,21 +19,21 @@ export class ProductService {
   getByCategory(categoryId: string): Observable<ProductModel[]> {
     return this.http.get<ProductModel[]>(`http://localhost:3000/products/category/${categoryId}`)
   }
-  add(data: FormData): Observable<ProductModel> {
-    return this.http.post<ProductModel>('http://localhost:300/products/add', data).pipe(
-      tap(product => this.products.push(product), console.log)
+  add(product: ProductModel): Observable<ProductModel> {
+    return this.http.post<ProductModel>('http://localhost:3000/products/add', product).pipe(
+      tap(item => this.products.push(item), console.log)
     )
   }
-  update(id: string, data: FormData): Observable<ProductModel> {
-    data.append('_method', 'put')
-    return this.http.put<ProductModel>(`http://localhost:3000/products/edit/${id}`, data).pipe(
-      tap(product => {
-        const updatedIndex = this.products.findIndex(item => item._id === product._id)
+  update(id: string, product: ProductModel): Observable<ProductModel> {
+    return this.http.put<ProductModel>(`http://localhost:3000/products/edit/${id}`, product).pipe(
+      tap(itemProduct => {
+        const updatedIndex = this.products.findIndex(item => item._id === itemProduct._id)
+        console.log(updatedIndex)
         if (updatedIndex < 0) {
-          return product
+          return itemProduct
         }
         this.products[updatedIndex] = product
-        return product
+        return itemProduct
       }),
       catchError( (item) => {
         throw new item.Error()

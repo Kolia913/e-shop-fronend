@@ -12,8 +12,6 @@ import {ProductModel} from '../common/model/product.model';
 export class ProductShowComponent implements OnInit {
 
   product?: Observable<ProductModel>
-  platforms: string[] = ['Windows', 'MacOS', 'Linux']
-  productPlatforms: string[] = []
   constructor(private readonly productService: ProductService,
               private readonly route: ActivatedRoute
   ) { }
@@ -23,11 +21,6 @@ export class ProductShowComponent implements OnInit {
       const id: string = params.get('id')
       console.log(`id: ${id}`)
       this.product = this.productService.get(id)
-    })
-    this.product.subscribe(item => {
-      item.platform.forEach( item1 => {
-        this.productPlatforms.push(' ' + this.platforms[item1])
-      })
     })
   }
 

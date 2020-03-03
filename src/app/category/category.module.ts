@@ -7,6 +7,7 @@ import { CategoryDropdownItemComponent } from './category-dropdown-item/category
 import {RouterModule} from '@angular/router';
 import { CategoryAddComponent } from './category-add/category-add.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { CategoryEditComponent } from './category-edit/category-edit.component';
     imports: [
         CommonModule,
         HttpClientModule,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule
     ],
   providers: [CategoryService],
   exports: [CategoryDropdownListComponent]

@@ -16,21 +16,20 @@ export class CategoryService {
   get(id: string): Observable<CategoryModel> {
     return this.http.get<CategoryModel>(`http://localhost:3000/categories/${id}`)
   }
-  add(data: FormData): Observable<CategoryModel> {
-    return this.http.post<CategoryModel>('http://localhost:300/categories/add', data).pipe(
-      tap(category => this.categories.push(category), console.log)
+  add(category: CategoryModel): Observable<CategoryModel> {
+    return this.http.post<CategoryModel>('http://localhost:3000/categories/add', category).pipe(
+      tap(item => this.categories.push(item), console.log)
     )
   }
-  update(id: string, data: FormData): Observable<CategoryModel> {
-    data.append('_method', 'put')
-    return this.http.put<CategoryModel>(`http://localhost:3000/categories/edit/${id}`, data).pipe(
-      tap(category => {
-        const updatedIndex = this.categories.findIndex(item => item._id === category._id)
+  update(id: string, category: CategoryModel): Observable<CategoryModel> {
+    return this.http.put<CategoryModel>(`http://localhost:3000/categories/edit/${id}`, category).pipe(
+      tap(itemCategory => {
+        const updatedIndex = this.categories.findIndex(item => item._id === itemCategory._id)
         if (updatedIndex < 0) {
-          return category
+          return itemCategory
         }
         this.categories[updatedIndex] = category
-        return category
+        return itemCategory
       }),
       catchError( (item) => {
         throw new item.Error()

@@ -9,12 +9,14 @@ import {CategoryModule} from './category/category.module';
 import {ProductModule} from './product/product.module';
 import {CartModule} from './cart/cart.module';
 import {AdminModule} from './admin/admin.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundComponent
   ],
     imports: [
         BrowserModule,

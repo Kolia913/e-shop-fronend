@@ -1,1 +1,5 @@
-<p>category-add works!</p>
+<form [formGroup]="categoryAdd" (submit)="submit()">
+  <input style="margin: 5px;"  placeholder="Name" type="text" [formControlName]="'name'">
+  <textarea style="margin: 5px; max-height: 20rem;"  placeholder="Description" [formControlName]="'description'"></textarea><br>
+  <button style="margin: 5px;"  class="btn btn-primary">Add!</button>
+</form>

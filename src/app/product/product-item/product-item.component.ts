@@ -10,17 +10,14 @@ import {environment} from '../../../environments/environment';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: ProductModel
-  platforms: string[] = ['Windows', 'MacOS', 'Linux']
-  productPlatforms: string[] = []
   isAdmin = environment.isAdmin;
   constructor(private readonly productService: ProductService) {
   }
 
   ngOnInit() {
-    this.product.platform.forEach( item => {
-      this.productPlatforms.push(' ' + this.platforms[item])
-    })
-    // console.log(this.productPlatforms)
   }
 
+  removeProduct(id: string) {
+    this.productService.remove(id).subscribe(item => console.log('deleted'))
+  }
 }

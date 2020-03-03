@@ -8,6 +8,11 @@ import {CartListComponent} from './cart/cart-list/cart-list.component';
 import {LoginComponent} from './admin/login/login.component';
 import {MainComponent} from './admin/main/main.component';
 import {environment} from '../environments/environment';
+import {ProductAddComponent} from './product/product-add/product-add.component';
+import {CategoryAddComponent} from './category/category-add/category-add.component';
+import {ProductEditComponent} from './product/product-edit/product-edit.component';
+import {CategoryEditComponent} from './category/category-edit/category-edit.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -38,7 +43,27 @@ const routes: Routes = [
   },
   {
     path: 'admin/main',
-    component: MainComponent
+    component: MainComponent,
+    children: [{
+      path: 'add-product',
+      component: ProductAddComponent
+    },
+      {
+        path: 'add-category',
+        component: CategoryAddComponent
+      },
+      {
+        path: 'edit-product/:id',
+        component: ProductEditComponent
+      },
+      {
+        path: 'edit-category/:id',
+        component: CategoryEditComponent
+      }]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

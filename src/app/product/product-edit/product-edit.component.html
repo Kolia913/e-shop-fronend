@@ -1,1 +1,13 @@
-<p>product-edit works!</p>
+<div class="container">
+  <form style="position: absolute" [formGroup]="productEdit" (submit)="submit()">
+    <input style="margin: 5px;" required type="text" [formControlName]="'name'" placeholder="Name"><br>
+    <textarea style="margin: 5px; max-height: 20rem;"  placeholder="Description" [formControlName]="'description'"></textarea><br>
+    <input style="margin: 5px;"  required type="text" [formControlName]="'image'" placeholder="Image url"><img src="{{imageUrl}}" style="height: 5rem; width: 5rem; margin: 1rem; border-radius: 50%"/><br>
+    <input style="margin: 5px;"  required type="number" [formControlName]="'price'"><br>
+    <input style="margin: 5px;"  required type="text" [formControlName]="'key'" ><br>
+    <select style="margin: 5px;"  [formControlName]="'categoryId'">
+      <option *ngFor="let category of this.categoryService.categories" [value]="category._id">{{category.name}}</option>
+    </select><br>
+    <button style="margin: 5px;"  class="btn btn-primary">Update!</button>
+  </form>
+</div>

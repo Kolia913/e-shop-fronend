@@ -1,7 +1,10 @@
 <app-category-dropdown-list></app-category-dropdown-list>
-<div *ngIf="this.isAdmin" style="position: absolute; margin-left: 70%; padding: 2%" class="container col-md-3">
-  <button style="margin: 1%" class="btn btn-success">Add product</button>
-  <button style="margin: 1%" class="btn btn-success">Add category</button>
+<div *ngIf="this.isAdmin" style="position: absolute; margin-left: 75%; padding: 2%" class="container col-md-3">
+  <button style="margin: 1%" class="btn btn-success" [routerLink]="'add-product'">Add product</button>
+  <button style="margin: 1%" class="btn btn-success" [routerLink]="'add-category'">Add category</button>
+</div>
+<div *ngIf="this.isAdmin" style="position: absolute; margin-left: 75%; margin-top: 5rem; padding: 2%" class="container col-md-3">
+  <router-outlet></router-outlet>
 </div>
 <app-product-list></app-product-list>
 

@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,10 +9,13 @@ import {environment} from '../../../environments/environment';
 })
 export class MainComponent implements OnInit, OnDestroy {
   isAdmin: boolean
-  constructor() { }
+  constructor(private readonly route: Router) { }
 
   ngOnInit(): void {
      this.isAdmin = environment.isAdmin
+     if (!this.isAdmin) {
+       this.route.navigate(['/'])
+    }
   }
 
   ngOnDestroy(): void {

@@ -38,6 +38,7 @@ export class CartService {
     // console.log(removeIndex)
     this.totalPrice -= this.values[removeIndex].price
     this.values.splice(removeIndex, 1)
+    this.keys.splice(removeIndex, 1)
     localStorage.removeItem(id)
   }
 }

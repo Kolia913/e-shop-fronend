@@ -32,7 +32,7 @@ export class ProductService {
         if (updatedIndex < 0) {
           return itemProduct
         }
-        this.products[updatedIndex] = product
+        this.products[updatedIndex] = itemProduct
         return itemProduct
       }),
       catchError( (item) => {

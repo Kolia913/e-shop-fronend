@@ -45,5 +45,7 @@ export class ProductAddComponent implements OnInit {
     console.log(data.get('name'))*/
     console.log(this.productAdd.value)
     const product = this.productService.add(this.productAdd.value).subscribe(item => console.log(item))
+    this.productAdd.reset()
+    this.imageUrl = ''
   }
 }

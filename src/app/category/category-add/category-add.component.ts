@@ -27,5 +27,6 @@ export class CategoryAddComponent implements OnInit {
       return
     }
     this.categoryService.add(this.categoryAdd.value).subscribe(item => console.log(item))
+    this.categoryAdd.reset()
   }
 }
